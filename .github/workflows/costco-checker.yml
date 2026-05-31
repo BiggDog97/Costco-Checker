@@ -1,4 +1,4 @@
-name: Costco Stock Checker
+name: Costco Checker
 
 on:
   schedule:
@@ -6,23 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-stock:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4
-
-      - name: Run stock checker
-        env:
-          PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
-          PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
-        run: python costco_checker.py
+      - run: echo "Scheduled workflow is working"
