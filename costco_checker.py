@@ -7,8 +7,8 @@ PUSHOVER_USER = os.environ.get("PUSHOVER_USER")
 PUSHOVER_TOKEN = os.environ.get("PUSHOVER_TOKEN")
 
 def check():
-    print("TEST MODE: forcing IN STOCK result")
-    return True
+    r = requests.get(URL, headers=HEADERS, timeout=15)
+    return "add to cart" in r.text.lower()
 
 def notify():
     requests.post(
