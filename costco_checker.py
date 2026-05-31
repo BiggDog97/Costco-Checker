@@ -7,7 +7,6 @@ PUSHOVER_USER = os.environ.get("PUSHOVER_USER")
 PUSHOVER_TOKEN = os.environ.get("PUSHOVER_TOKEN")
 
 def check():
- def check():
     print("TEST MODE: forcing IN STOCK result")
     return True
 
