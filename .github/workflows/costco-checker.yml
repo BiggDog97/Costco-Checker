@@ -1,43 +1,28 @@
 name: Costco Checker
 
 on:
-
   schedule:
-
-    - cron: "*/15 * * * *"
-
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 jobs:
-
   check-stock:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
-
         uses: actions/checkout@v4
 
       - name: Set up Python
-
         uses: actions/setup-python@v5
-
         with:
-
           python-version: "3.11"
 
       - name: Install dependencies
-
         run: pip install requests beautifulsoup4
 
       - name: Run checker
-
         env:
-
           PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
-
           PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
-
         run: python costco_checker.py
